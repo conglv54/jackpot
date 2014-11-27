@@ -10,6 +10,8 @@
 
 @implementation MyScene
 
+#pragma mark - Init
+
 - (id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     if (self) {
@@ -19,7 +21,26 @@
 }
 
 - (void)initSceneSize:(CGSize)size {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor yellowColor];
+    [self loadDataGame];
 }
+
+- (void)loadDataGame {
+    
+}
+
+#pragma mark - ()
+
+- (void)start {
+    
+}
+
+- (void)stop {
+    
+}
+
+#pragma mark - Update
+
+
 
 @end

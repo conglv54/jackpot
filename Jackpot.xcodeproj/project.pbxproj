@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		587CABDB1A27973D00C3AE97 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587CABDA1A27973D00C3AE97 /* SpriteKit.framework */; };
+		587CABDE1A279C1C00C3AE97 /* btnPayout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 587CABDD1A279C1C00C3AE97 /* btnPayout@2x.png */; };
 		588561651A27E16A0090B284 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561641A27E16A0090B284 /* main.m */; };
 		588561681A27E16A0090B284 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561671A27E16A0090B284 /* AppDelegate.m */; };
 		5885616E1A27E16A0090B284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5885616C1A27E16A0090B284 /* Main.storyboard */; };
@@ -18,6 +20,11 @@
 		588561951A27E26C0090B284 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561941A27E26C0090B284 /* MainViewController.m */; };
 		588561991A27E5820090B284 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561981A27E5820090B284 /* Utils.m */; };
 		5885619D1A27E5B90090B284 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5885619C1A27E5B90090B284 /* Constant.m */; };
+		588561A71A27EE380090B284 /* CellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561A61A27EE380090B284 /* CellNode.m */; };
+		588561AA1A27EFA40090B284 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588561A91A27EFA40090B284 /* bg@2x.png */; };
+		588561AC1A27EFA40090B284 /* bgHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588561AB1A27EFA40090B284 /* bgHeader@2x.png */; };
+		588561AE1A27EFA40090B284 /* bgMoney@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588561AD1A27EFA40090B284 /* bgMoney@2x.png */; };
+		588561B01A27EFA40090B284 /* bgLevel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588561AF1A27EFA40090B284 /* bgLevel@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		587CABDA1A27973D00C3AE97 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		587CABDD1A279C1C00C3AE97 /* btnPayout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnPayout@2x.png"; sourceTree = "<group>"; };
 		5885615F1A27E1690090B284 /* Jackpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jackpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		588561631A27E16A0090B284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		588561641A27E16A0090B284 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +61,12 @@
 		588561981A27E5820090B284 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Other/Utils.m; sourceTree = "<group>"; };
 		5885619B1A27E5B90090B284 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Other/Constant.h; sourceTree = "<group>"; };
 		5885619C1A27E5B90090B284 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constant.m; path = Other/Constant.m; sourceTree = "<group>"; };
+		588561A51A27EE380090B284 /* CellNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellNode.h; path = Scene/CellNode.h; sourceTree = "<group>"; };
+		588561A61A27EE380090B284 /* CellNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellNode.m; path = Scene/CellNode.m; sourceTree = "<group>"; };
+		588561A91A27EFA40090B284 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		588561AB1A27EFA40090B284 /* bgHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgHeader@2x.png"; sourceTree = "<group>"; };
+		588561AD1A27EFA40090B284 /* bgMoney@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgMoney@2x.png"; sourceTree = "<group>"; };
+		588561AF1A27EFA40090B284 /* bgLevel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgLevel@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				587CABDB1A27973D00C3AE97 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		587CABDC1A27974600C3AE97 /* Sprite Kit */ = {
+			isa = PBXGroup;
+			children = (
+				587CABDA1A27973D00C3AE97 /* SpriteKit.framework */,
+			);
+			name = "Sprite Kit";
+			sourceTree = "<group>";
+		};
 		588561561A27E1690090B284 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +122,9 @@
 				5885616C1A27E16A0090B284 /* Main.storyboard */,
 				588561921A27E24F0090B284 /* Controller */,
 				5885618B1A27E20E0090B284 /* Scene */,
+				588561A11A27E7210090B284 /* State */,
 				5885619A1A27E5950090B284 /* Other */,
+				588561A81A27EFA40090B284 /* Resource */,
 				5885616F1A27E16A0090B284 /* Images.xcassets */,
 				588561711A27E16A0090B284 /* LaunchScreen.xib */,
 				588561621A27E1690090B284 /* Supporting Files */,
@@ -109,6 +135,7 @@
 		588561621A27E1690090B284 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				587CABDC1A27974600C3AE97 /* Sprite Kit */,
 				588561631A27E16A0090B284 /* Info.plist */,
 				588561641A27E16A0090B284 /* main.m */,
 			);
@@ -137,6 +164,8 @@
 			children = (
 				588561881A27E1D50090B284 /* MyScene.h */,
 				588561891A27E1D50090B284 /* MyScene.m */,
+				588561A51A27EE380090B284 /* CellNode.h */,
+				588561A61A27EE380090B284 /* CellNode.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -169,6 +198,25 @@
 				5885619C1A27E5B90090B284 /* Constant.m */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		588561A11A27E7210090B284 /* State */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = State;
+			sourceTree = "<group>";
+		};
+		588561A81A27EFA40090B284 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				588561AB1A27EFA40090B284 /* bgHeader@2x.png */,
+				588561A91A27EFA40090B284 /* bg@2x.png */,
+				588561AD1A27EFA40090B284 /* bgMoney@2x.png */,
+				588561AF1A27EFA40090B284 /* bgLevel@2x.png */,
+				587CABDD1A279C1C00C3AE97 /* btnPayout@2x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,9 +299,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588561AE1A27EFA40090B284 /* bgMoney@2x.png in Resources */,
+				588561AC1A27EFA40090B284 /* bgHeader@2x.png in Resources */,
 				5885616E1A27E16A0090B284 /* Main.storyboard in Resources */,
+				587CABDE1A279C1C00C3AE97 /* btnPayout@2x.png in Resources */,
 				588561731A27E16A0090B284 /* LaunchScreen.xib in Resources */,
 				588561701A27E16A0090B284 /* Images.xcassets in Resources */,
+				588561AA1A27EFA40090B284 /* bg@2x.png in Resources */,
+				588561B01A27EFA40090B284 /* bgLevel@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +327,7 @@
 				5885618A1A27E1D50090B284 /* MyScene.m in Sources */,
 				588561911A27E2410090B284 /* BaseViewController.m in Sources */,
 				5885619D1A27E5B90090B284 /* Constant.m in Sources */,
+				588561A71A27EE380090B284 /* CellNode.m in Sources */,
 				588561681A27E16A0090B284 /* AppDelegate.m in Sources */,
 				588561991A27E5820090B284 /* Utils.m in Sources */,
 				588561951A27E26C0090B284 /* MainViewController.m in Sources */,
@@ -470,6 +524,7 @@
 				588561841A27E16A0090B284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		588561851A27E16A0090B284 /* Build configuration list for PBXNativeTarget "JackpotTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +533,7 @@
 				588561871A27E16A0090B284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

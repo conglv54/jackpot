@@ -22,6 +22,7 @@
 }
 
 - (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     [self initScene];
 }
 
@@ -30,9 +31,11 @@
 - (void)initScene {
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    skView.showsFPS = YES;
+    skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    self.scene = [MyScene sceneWithSize:skView.bounds.size];
+    self.scene = [[MyScene alloc] initWithSize:skView.bounds.size];
     self.scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
