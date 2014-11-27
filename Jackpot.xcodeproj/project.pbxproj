@@ -16,6 +16,8 @@
 		5885618A1A27E1D50090B284 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561891A27E1D50090B284 /* MyScene.m */; };
 		588561911A27E2410090B284 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561901A27E2410090B284 /* BaseViewController.m */; };
 		588561951A27E26C0090B284 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561941A27E26C0090B284 /* MainViewController.m */; };
+		588561991A27E5820090B284 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 588561981A27E5820090B284 /* Utils.m */; };
+		5885619D1A27E5B90090B284 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5885619C1A27E5B90090B284 /* Constant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		588561901A27E2410090B284 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Controller/BaseViewController.m; sourceTree = "<group>"; };
 		588561931A27E26C0090B284 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/Main/MainViewController.h; sourceTree = "<group>"; };
 		588561941A27E26C0090B284 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/Main/MainViewController.m; sourceTree = "<group>"; };
+		588561971A27E5820090B284 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Other/Utils.h; sourceTree = "<group>"; };
+		588561981A27E5820090B284 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Other/Utils.m; sourceTree = "<group>"; };
+		5885619B1A27E5B90090B284 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Other/Constant.h; sourceTree = "<group>"; };
+		5885619C1A27E5B90090B284 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constant.m; path = Other/Constant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 				5885616C1A27E16A0090B284 /* Main.storyboard */,
 				588561921A27E24F0090B284 /* Controller */,
 				5885618B1A27E20E0090B284 /* Scene */,
+				5885619A1A27E5950090B284 /* Other */,
 				5885616F1A27E16A0090B284 /* Images.xcassets */,
 				588561711A27E16A0090B284 /* LaunchScreen.xib */,
 				588561621A27E1690090B284 /* Supporting Files */,
@@ -151,6 +158,17 @@
 				588561941A27E26C0090B284 /* MainViewController.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		5885619A1A27E5950090B284 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				588561971A27E5820090B284 /* Utils.h */,
+				588561981A27E5820090B284 /* Utils.m */,
+				5885619B1A27E5B90090B284 /* Constant.h */,
+				5885619C1A27E5B90090B284 /* Constant.m */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +273,9 @@
 			files = (
 				5885618A1A27E1D50090B284 /* MyScene.m in Sources */,
 				588561911A27E2410090B284 /* BaseViewController.m in Sources */,
+				5885619D1A27E5B90090B284 /* Constant.m in Sources */,
 				588561681A27E16A0090B284 /* AppDelegate.m in Sources */,
+				588561991A27E5820090B284 /* Utils.m in Sources */,
 				588561951A27E26C0090B284 /* MainViewController.m in Sources */,
 				588561651A27E16A0090B284 /* main.m in Sources */,
 			);

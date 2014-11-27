@@ -10,4 +10,16 @@
 
 @implementation MyScene
 
+- (id)initWithSize:(CGSize)size {
+    self = [super initWithSize:size];
+    if (self) {
+        [self initSceneSize:size];
+    }
+    return self;
+}
+
+- (void)initSceneSize:(CGSize)size {
+    self.backgroundColor = [UIColor whiteColor];
+}
+
 @end
