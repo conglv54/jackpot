@@ -16,104 +16,53 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="-64.5"/>
+        </scene>
+        <!--Buy View Controller-->
+        <scene sceneID="lhf-I5-Bcq">
+            <objects>
+                <viewController storyboardIdentifier="BuyViewController" id="DaW-co-qIR" customClass="BuyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OTW-ZL-gh1"/>
+                        <viewControllerLayoutGuide type="bottom" id="wlN-Q6-25W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GFL-YC-4ke">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="r9V-E3-0JD">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfO-E7-B31">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91C-Km-sNi">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="186" y="149" width="46" height="30"/>
+                                    <rect key="frame" x="16" y="28" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="dismis:" destination="DaW-co-qIR" eventType="touchUpInside" id="gJo-Ja-sVk"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-qV-um1">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgLevel.png" translatesAutoresizingMaskIntoConstraints="NO" id="sFX-hq-O5W">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="114" y="19" width="110" height="29"/>
-                                </variation>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgMoney.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tfo-hP-zDW">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPayout.png" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-7k-yPK">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="366" y="22" width="106" height="23"/>
-                                </variation>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Tfo-hP-zDW" secondAttribute="centerX" id="6RO-P3-xRY"/>
-                            <constraint firstAttribute="centerX" secondItem="kOX-qV-um1" secondAttribute="centerX" id="6S3-5y-Gq0"/>
-                            <constraint firstAttribute="trailing" secondItem="r9V-E3-0JD" secondAttribute="trailing" id="9bT-K7-d4V"/>
-                            <constraint firstItem="Tfo-hP-zDW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="2" id="Eq4-G2-E4R"/>
-                            <constraint firstAttribute="centerX" secondItem="r9V-E3-0JD" secondAttribute="centerX" id="Q6J-Qi-K1f"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="r9V-E3-0JD" secondAttribute="bottom" id="XxY-PI-FLZ"/>
-                            <constraint firstItem="r9V-E3-0JD" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hjX-xR-ZrN"/>
-                            <constraint firstItem="r9V-E3-0JD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="oC0-uW-ylx"/>
-                            <constraint firstItem="kOX-qV-um1" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="z4u-q8-wU9"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="r9V-E3-0JD"/>
-                                <exclude reference="xfO-E7-B31"/>
-                                <exclude reference="kOX-qV-um1"/>
-                                <exclude reference="sFX-hq-O5W"/>
-                                <exclude reference="Tfo-hP-zDW"/>
-                                <exclude reference="rXL-7k-yPK"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="9bT-K7-d4V"/>
-                                <exclude reference="Q6J-Qi-K1f"/>
-                                <exclude reference="hjX-xR-ZrN"/>
-                                <exclude reference="oC0-uW-ylx"/>
-                                <exclude reference="6S3-5y-Gq0"/>
-                                <exclude reference="z4u-q8-wU9"/>
-                                <exclude reference="6RO-P3-xRY"/>
-                                <exclude reference="Eq4-G2-E4R"/>
-                                <exclude reference="XxY-PI-FLZ"/>
+                                <exclude reference="91C-Km-sNi"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
-                                <include reference="r9V-E3-0JD"/>
-                                <include reference="xfO-E7-B31"/>
-                                <include reference="kOX-qV-um1"/>
-                                <include reference="sFX-hq-O5W"/>
-                                <include reference="Tfo-hP-zDW"/>
-                                <include reference="rXL-7k-yPK"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="9bT-K7-d4V"/>
-                                <include reference="Q6J-Qi-K1f"/>
-                                <include reference="hjX-xR-ZrN"/>
-                                <include reference="oC0-uW-ylx"/>
-                                <include reference="6S3-5y-Gq0"/>
-                                <include reference="z4u-q8-wU9"/>
-                                <include reference="6RO-P3-xRY"/>
-                                <include reference="Eq4-G2-E4R"/>
-                                <include reference="XxY-PI-FLZ"/>
+                                <include reference="91C-Km-sNi"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtd-aX-Akm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="-64.5"/>
+            <point key="canvasLocation" x="792" y="-64.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bg.png" width="568" height="320"/>
-        <image name="bgHeader.png" width="567" height="67"/>
-        <image name="bgLevel.png" width="110" height="29"/>
-        <image name="bgMoney.png" width="106" height="23"/>
-        <image name="btnPayout.png" width="62" height="21"/>
-    </resources>
 </document>
