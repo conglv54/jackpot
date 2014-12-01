@@ -27,6 +27,7 @@
 		588561B01A27EFA40090B284 /* bgLevel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588561AF1A27EFA40090B284 /* bgLevel@2x.png */; };
 		588C282A1A2952E900829E09 /* bgCenterMachine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588C28291A2952E900829E09 /* bgCenterMachine@2x.png */; };
 		588C28331A29545E00829E09 /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588C28321A29545E00829E09 /* BuyViewController.m */; };
+		58A95AD11A2CD5B900362FA6 /* ObjectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A95AD01A2CD5B900362FA6 /* ObjectSprite.m */; };
 		58BDE95C1A28BC94005C766A /* bgLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE95B1A28BC94005C766A /* bgLeft@2x.png */; };
 		58BDE95E1A28C1D1005C766A /* bgMachine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE95D1A28C1D1005C766A /* bgMachine@2x.png */; };
 		58BDE9601A28C51B005C766A /* bgRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE95F1A28C51B005C766A /* bgRight@2x.png */; };
@@ -89,6 +90,8 @@
 		588C28291A2952E900829E09 /* bgCenterMachine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgCenterMachine@2x.png"; sourceTree = "<group>"; };
 		588C28311A29545E00829E09 /* BuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyViewController.h; path = Controller/Buy/BuyViewController.h; sourceTree = "<group>"; };
 		588C28321A29545E00829E09 /* BuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuyViewController.m; path = Controller/Buy/BuyViewController.m; sourceTree = "<group>"; };
+		58A95ACF1A2CD5B900362FA6 /* ObjectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectSprite.h; path = Scene/ObjectSprite.h; sourceTree = "<group>"; };
+		58A95AD01A2CD5B900362FA6 /* ObjectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectSprite.m; path = Scene/ObjectSprite.m; sourceTree = "<group>"; };
 		58BDE95B1A28BC94005C766A /* bgLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgLeft@2x.png"; sourceTree = "<group>"; };
 		58BDE95D1A28C1D1005C766A /* bgMachine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgMachine@2x.png"; sourceTree = "<group>"; };
 		58BDE95F1A28C51B005C766A /* bgRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgRight@2x.png"; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				588561A61A27EE380090B284 /* CellNode.m */,
 				58BDE9761A28D59A005C766A /* ListNode.h */,
 				58BDE9771A28D59A005C766A /* ListNode.m */,
+				58A95ACF1A2CD5B900362FA6 /* ObjectSprite.h */,
+				58A95AD01A2CD5B900362FA6 /* ObjectSprite.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				588561911A27E2410090B284 /* BaseViewController.m in Sources */,
 				5885619D1A27E5B90090B284 /* Constant.m in Sources */,
 				588561A71A27EE380090B284 /* CellNode.m in Sources */,
+				58A95AD11A2CD5B900362FA6 /* ObjectSprite.m in Sources */,
 				58BDE9781A28D59A005C766A /* ListNode.m in Sources */,
 				588561681A27E16A0090B284 /* AppDelegate.m in Sources */,
 				588561991A27E5820090B284 /* Utils.m in Sources */,

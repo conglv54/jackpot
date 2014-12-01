@@ -8,9 +8,13 @@
 
 #import "MyScene.h"
 #import "ListNode.h"
+#import "ObjectSprite.h"
 
 @implementation MyScene {
+
     ListNode *_listNode;
+    ObjectSprite *sprite;
+    
     NSTimeInterval _lastUpdateTime;
     NSTimeInterval _deltaTime;
 }
@@ -37,19 +41,17 @@
 }
 
 - (void)loadDataGame {
-    _listNode = [[ListNode alloc]initListNode];
-    [_listNode setPosition:CGPointMake(0, 0)];
-    [self addChild:_listNode];
+//    _listNode = [[ListNode alloc]initListNode];
+//    [_listNode setPosition:CGPointMake(0, 0)];
+//    [self addChild:_listNode];
+    sprite = [[ObjectSprite alloc] init];
+    [self addChild:sprite];
 }
 
 #pragma mark - ()
 
-- (void)start {
-    
-}
-
-- (void)stop {
-    
+- (void)spin {
+    [sprite stepState];
 }
 
 #pragma mark - Update
@@ -65,7 +67,9 @@
     }
     _lastUpdateTime = currentTime;
     
-    [_listNode update:_deltaTime];
+//    [_listNode update:_deltaTime];
+    
+    [sprite update:_deltaTime];
 }
 
 @end

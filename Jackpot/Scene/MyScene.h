@@ -10,8 +10,6 @@
 
 @interface MyScene : SKScene
 
-- (void)start;
-
-- (void)stop;
+- (void)spin;
 
 @end
