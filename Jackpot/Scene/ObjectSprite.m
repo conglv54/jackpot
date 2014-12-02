@@ -8,7 +8,9 @@
 
 #import "ObjectSprite.h"
 
-static const float BG_VELOCITY = 1000;
+static const float OBJECT_VELOCITY = 100;
+static const float MAX_VELOCITY = 1000;
+
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {
     return CGPointMake(a.x + b.x, a.y + b.y);
@@ -30,6 +32,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if (self) {
         
         self.currentState = State_Idle;
+        _bgVelocity = CGPointMake(0, -OBJECT_VELOCITY);
         
         for (int i = 0; i < 5; i++) {
             CGPoint position = CGPointMake(145, 100 + (65*i));
@@ -45,12 +48,18 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if ([self.children count] >= 5)
         return;
     
-    [self initNodeWithPosition:CGPointMake(145, 100 + 53*5)];
+    [self initNodeWithPosition:CGPointMake(145, 100 + 67*4)];
 }
 
-- (SKTexture *)genareTexture {
+- (SKTexture *)genareTextureRandom {
     
     int number = arc4random() % 4;
+    
+    SKTexture *texture = [self genareTextureWithNumber:number];
+    return texture;
+}
+
+- (SKTexture *)genareTextureWithNumber:(int) number {
     
     NSString *imageName = [NSString stringWithFormat:@"jackPot%d", number];
     SKTexture *textTure = [SKTexture textureWithImageNamed:imageName];
@@ -60,7 +69,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)initNodeWithPosition:(CGPoint) position {
     
-    SKTexture *texture = [self genareTexture];
+    SKTexture *texture = [self genareTextureRandom];
     
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
     note.position = position;
@@ -97,20 +106,50 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)move:(NSTimeInterval)dt {
+    
     [self enumerateChildNodesWithName:@"node" usingBlock: ^(SKNode *node, BOOL *stop)
      {
-         CGPoint bgVelocity = CGPointMake(0, -BG_VELOCITY);
-         CGPoint amtToMove = CGPointMultiplyScalar(bgVelocity, dt);
+
+         CGPoint amtToMove = CGPointMultiplyScalar(_bgVelocity, dt);
+         
+        switch (self.currentState) {
+            case State_Idle:
+                break;
+            case State_Start:
+                
+                _bgVelocity.y = _bgVelocity.y - 100*dt;
+                
+                if (_bgVelocity.y < - MAX_VELOCITY) {
+                    _bgVelocity.y = - MAX_VELOCITY;
+                }
+                break;
+            case State_Stop:
+                
+                _bgVelocity.y = _bgVelocity.y + 100*dt;
+                
+                if (_bgVelocity.y > 0) {
+                    _bgVelocity.y = 0;
+                }
+                
+                break;
+            default:
+            break;
+        }
+         
          node.position = CGPointAdd(node.position, amtToMove);
          
          if (node.position.y < 53)
          {
+             
              [node removeFromParent];
              node = nil;
+          
+             if (`) {
+                 
+             }
+            [self genareObject];
          }
      }];
-    
-    [self genareObject];
 }
 
 

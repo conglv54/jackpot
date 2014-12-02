@@ -17,6 +17,7 @@ typedef enum : NSUInteger {
 @interface ObjectSprite : SKNode
 
 @property (nonatomic) MachineState currentState;
+@property (nonatomic) CGPoint bgVelocity;
 
 - (void)stepState;
 - (void)update:(NSTimeInterval)deltaTime;
