@@ -111,7 +111,7 @@
     imvWin.frame = [self scaleFrame:CGRectMake(396, 263, imgBgWin.size.width, imgBgWin.size.height)]    ;
     [self.view addSubview:imvWin];
 //
-//    [self initScene];
+    [self initScene];
 }
 
 - (void)viewWillLayoutSubviews {
