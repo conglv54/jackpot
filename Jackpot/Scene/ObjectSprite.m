@@ -129,6 +129,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 
                 if (_bgVelocity.y > 0) {
                     _bgVelocity.y = 0;
+                    self.currentState = State_Idle;
                 }
                 
                 break;
@@ -144,10 +145,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
              [node removeFromParent];
              node = nil;
           
-             if (`) {
-                 
-             }
-            [self genareObject];
+//             if (_bgVelocity.y > - 0.5 ) {
+//                 [self genareTextureWithNumber:1];
+//             } else {
+                [self genareObject];
+//             }
+
          }
      }];
 }
