@@ -47,6 +47,7 @@
 		58BDE9801A28D743005C766A /* jackPot3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97C1A28D743005C766A /* jackPot3@2x.png */; };
 		6E9575301A2F0467000C3D78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */; };
 		6EEB36881A300B0900BF9928 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEB36871A300B0900BF9928 /* UIView+Frame.m */; };
+		6EEB368B1A305B7700BF9928 /* SKNode+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEB368A1A305B7700BF9928 /* SKNode+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6EEB36861A300B0900BF9928 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Category/UIView+Frame.h"; sourceTree = "<group>"; };
 		6EEB36871A300B0900BF9928 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Category/UIView+Frame.m"; sourceTree = "<group>"; };
+		6EEB36891A305B7700BF9928 /* SKNode+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SKNode+Frame.h"; path = "Category/SKNode+Frame.h"; sourceTree = "<group>"; };
+		6EEB368A1A305B7700BF9928 /* SKNode+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SKNode+Frame.m"; path = "Category/SKNode+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 			children = (
 				6EEB36861A300B0900BF9928 /* UIView+Frame.h */,
 				6EEB36871A300B0900BF9928 /* UIView+Frame.m */,
+				6EEB36891A305B7700BF9928 /* SKNode+Frame.h */,
+				6EEB368A1A305B7700BF9928 /* SKNode+Frame.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				588561911A27E2410090B284 /* BaseViewController.m in Sources */,
 				5885619D1A27E5B90090B284 /* Constant.m in Sources */,
 				588561A71A27EE380090B284 /* CellNode.m in Sources */,
+				6EEB368B1A305B7700BF9928 /* SKNode+Frame.m in Sources */,
 				58A95AD11A2CD5B900362FA6 /* ObjectSprite.m in Sources */,
 				58BDE9781A28D59A005C766A /* ListNode.m in Sources */,
 				588561681A27E16A0090B284 /* AppDelegate.m in Sources */,

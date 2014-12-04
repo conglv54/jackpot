@@ -22,6 +22,7 @@ typedef enum : NSUInteger {
     CGPoint velocityY;
     int current;
     
+    CGFloat distance;    
 }
 
 

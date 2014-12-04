@@ -7,9 +7,10 @@
 //
 
 #import "ObjectSprite.h"
+#import "SKNode+Frame.h"
 
 static const float OBJECT_VELOCITY = 100;
-static const float MAX_VELOCITY = 500;
+static const float MAX_VELOCITY = 1000;
 
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {
@@ -35,7 +36,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         velocityY = CGPointMake(0, -OBJECT_VELOCITY);
         
         for (int i = 0; i < 5; i++) {
-            CGPoint position = CGPointMake(145, 100 + (43*i));
+            CGPoint position = CGPointMake(105, 70 + (65*i));
             [self initNodeWithPosition:position];
         }
     }
@@ -53,8 +54,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (SKTexture *)genareTextureRandom {
     
-//    int number = arc4random() % 4;
-    int number = 0;
+    int number = arc4random() % 4;
+    number = 0;
+    
     SKTexture *texture = [self genareTextureWithNumber:number];
     return texture;
 }
@@ -72,8 +74,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKTexture *texture = [self genareTextureRandom];
     
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
-    note.position = position;
+    note.position = [self newPoint:position];
+    note.anchorPoint = CGPointMake(0, 0);
     note.name = @"node";
+    note.size = [self newSize:CGSizeMake(72, 65)];
     
     [self addChild:note];
 }
@@ -125,7 +129,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 break;
             case State_Stop:
                 
+                distance = distance +
                 velocityY.y = velocityY.y + 100*dt;
+                
+                if (velocityY.y > -5) {
+                    
+                }
 
                 if (velocityY.y > 0) {
                     velocityY.y = 0;
@@ -141,12 +150,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
          
          node.position = CGPointAdd(node.position, amtToMove);
          
-         if (node.position.y < 57)
+         if (node.position.y < 0)
          {
-            
+             
             [node removeFromParent];
              
-             SKSpriteNode *node = self.children[3];
+             SKSpriteNode *node = self.children[self.children.count - 1];
             [self genareObjectAttPosition:CGPointMake(node.position.x, node.position.y+ node.size.height)];
          }
      }];
