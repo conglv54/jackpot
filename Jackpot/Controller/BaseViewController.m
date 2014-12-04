@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
+#define WIDTH_SCREEN [[UIScreen mainScreen] bounds].size.width
+#define HEIGHT_SCREEN [[UIScreen mainScreen] bounds].size.height
+
+#define xScale(x) x*WIDTH_SCREEN/320
+#define yScale(y) y*HEIGHT_SCREEN/568
+
 @interface BaseViewController ()
 
 @end
@@ -19,19 +25,12 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (CGRect)scaleFrame:(CGRect)frame {
+    CGRect scaleFrame = CGRectMake(xScale(frame.origin.x),
+                                   yScale(frame.origin.y),
+                                   xScale(frame.size.width),
+                                   yScale(frame.size.height));
+    
+    return scaleFrame;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

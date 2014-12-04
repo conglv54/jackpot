@@ -147,7 +147,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             [node removeFromParent];
              
              SKSpriteNode *node = self.children[3];
-             
             [self genareObjectAttPosition:CGPointMake(node.position.x, node.position.y+ node.size.height)];
          }
      }];

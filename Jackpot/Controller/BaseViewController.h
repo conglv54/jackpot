@@ -10,4 +10,6 @@
 
 @interface BaseViewController : UIViewController
 
+- (CGRect)scaleFrame:(CGRect)frame;
+
 @end

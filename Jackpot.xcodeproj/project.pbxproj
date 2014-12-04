@@ -133,6 +133,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58396AE71A2F72FE009374E7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		587CABDC1A27974600C3AE97 /* Sprite Kit */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +172,7 @@
 				588561661A27E16A0090B284 /* AppDelegate.h */,
 				588561671A27E16A0090B284 /* AppDelegate.m */,
 				5885616C1A27E16A0090B284 /* Main.storyboard */,
+				58396AE71A2F72FE009374E7 /* Category */,
 				588561921A27E24F0090B284 /* Controller */,
 				5885618B1A27E20E0090B284 /* Scene */,
 				588561A11A27E7210090B284 /* State */,

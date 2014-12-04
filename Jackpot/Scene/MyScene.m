@@ -10,6 +10,12 @@
 #import "ListNode.h"
 #import "ObjectSprite.h"
 
+#define WIDTH_SCREEN [[UIScreen mainScreen] bounds].size.width
+#define HEIGHT_SCREEN [[UIScreen mainScreen] bounds].size.height
+
+#define xScale(x) x*WIDTH_SCREEN/568
+#define yScale(y) y*HEIGHT_SCREEN/320
+
 @implementation MyScene {
 
     ListNode *_listNode;
@@ -20,6 +26,15 @@
 }
 
 #pragma mark - Init
+
+- (CGRect)scaleFrame:(CGRect)frame {
+    CGRect scaleFrame = CGRectMake(xScale(frame.origin.x),
+                                   yScale(frame.origin.y),
+                                   xScale(frame.size.width),
+                                   yScale(frame.size.height));
+    
+    return scaleFrame;
+}
 
 - (id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
@@ -32,7 +47,8 @@
 - (void)initSceneSize:(CGSize)size {
     self.backgroundColor = [UIColor colorWithRed:0.3451 green:0.3373 blue:0.8392 alpha:1.0];
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"bgMachine"];
-    bg.position = CGPointMake(285.5, 163.5);
+    bg.position = CGPointMake(xScale(285.5), yScale(163.5));
+    
     [self addChild:bg];
     [self loadDataGame];
 //    SKSpriteNode *bgCenter = [SKSpriteNode spriteNodeWithImageNamed:@"bgCenterMachine"];
