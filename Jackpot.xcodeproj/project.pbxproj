@@ -46,6 +46,7 @@
 		58BDE97F1A28D743005C766A /* jackPot2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97B1A28D743005C766A /* jackPot2@2x.png */; };
 		58BDE9801A28D743005C766A /* jackPot3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97C1A28D743005C766A /* jackPot3@2x.png */; };
 		6E9575301A2F0467000C3D78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */; };
+		6EEB36881A300B0900BF9928 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEB36871A300B0900BF9928 /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		58BDE97B1A28D743005C766A /* jackPot2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jackPot2@2x.png"; sourceTree = "<group>"; };
 		58BDE97C1A28D743005C766A /* jackPot3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jackPot3@2x.png"; sourceTree = "<group>"; };
 		6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6EEB36861A300B0900BF9928 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Category/UIView+Frame.h"; sourceTree = "<group>"; };
+		6EEB36871A300B0900BF9928 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Category/UIView+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 		58396AE71A2F72FE009374E7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6EEB36861A300B0900BF9928 /* UIView+Frame.h */,
+				6EEB36871A300B0900BF9928 /* UIView+Frame.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EEB36881A300B0900BF9928 /* UIView+Frame.m in Sources */,
 				5885618A1A27E1D50090B284 /* MyScene.m in Sources */,
 				588561911A27E2410090B284 /* BaseViewController.m in Sources */,
 				5885619D1A27E5B90090B284 /* Constant.m in Sources */,
