@@ -14,10 +14,17 @@ typedef enum : NSUInteger {
     State_Stop,
 } MachineState;
 
-@interface ObjectSprite : SKNode
+@interface ObjectSprite : SKNode {
 
-@property (nonatomic) MachineState currentState;
-@property (nonatomic) CGPoint bgVelocity;
+@private
+    
+    MachineState currentState;
+    CGPoint velocityY;
+    int current;
+    
+}
+
+
 
 - (void)stepState;
 - (void)update:(NSTimeInterval)deltaTime;

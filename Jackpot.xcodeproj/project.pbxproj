@@ -45,6 +45,7 @@
 		58BDE97E1A28D743005C766A /* jackPot1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97A1A28D743005C766A /* jackPot1@2x.png */; };
 		58BDE97F1A28D743005C766A /* jackPot2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97B1A28D743005C766A /* jackPot2@2x.png */; };
 		58BDE9801A28D743005C766A /* jackPot3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BDE97C1A28D743005C766A /* jackPot3@2x.png */; };
+		6E9575301A2F0467000C3D78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		58BDE97A1A28D743005C766A /* jackPot1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jackPot1@2x.png"; sourceTree = "<group>"; };
 		58BDE97B1A28D743005C766A /* jackPot2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jackPot2@2x.png"; sourceTree = "<group>"; };
 		58BDE97C1A28D743005C766A /* jackPot3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jackPot3@2x.png"; sourceTree = "<group>"; };
+		6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 		588561A81A27EFA40090B284 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6E95752F1A2F0467000C3D78 /* Default-568h@2x.png */,
 				588561AB1A27EFA40090B284 /* bgHeader@2x.png */,
 				588561A91A27EFA40090B284 /* bg@2x.png */,
 				58BDE95B1A28BC94005C766A /* bgLeft@2x.png */,
@@ -382,6 +385,7 @@
 				58BDE95E1A28C1D1005C766A /* bgMachine@2x.png in Resources */,
 				58BDE9641A28C6A5005C766A /* btnShop@2x.png in Resources */,
 				58BDE9711A28CDDB005C766A /* bgMaxBet@2x.png in Resources */,
+				6E9575301A2F0467000C3D78 /* Default-568h@2x.png in Resources */,
 				58BDE96C1A28CB38005C766A /* btnSpin@2x.png in Resources */,
 				5885616E1A27E16A0090B284 /* Main.storyboard in Resources */,
 				587CABDE1A279C1C00C3AE97 /* btnPayout@2x.png in Resources */,
@@ -547,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Jackpot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Jackpot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

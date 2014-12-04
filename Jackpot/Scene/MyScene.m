@@ -30,7 +30,7 @@
 }
 
 - (void)initSceneSize:(CGSize)size {
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor colorWithRed:0.3451 green:0.3373 blue:0.8392 alpha:1.0];
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"bgMachine"];
     bg.position = CGPointMake(285.5, 163.5);
     [self addChild:bg];

@@ -9,7 +9,7 @@
 #import "ObjectSprite.h"
 
 static const float OBJECT_VELOCITY = 100;
-static const float MAX_VELOCITY = 1000;
+static const float MAX_VELOCITY = 500;
 
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {
@@ -31,11 +31,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     if (self) {
         
-        self.currentState = State_Idle;
-        _bgVelocity = CGPointMake(0, -OBJECT_VELOCITY);
+        currentState = State_Idle;
+        velocityY = CGPointMake(0, -OBJECT_VELOCITY);
         
         for (int i = 0; i < 5; i++) {
-            CGPoint position = CGPointMake(145, 100 + (65*i));
+            CGPoint position = CGPointMake(145, 100 + (43*i));
             [self initNodeWithPosition:position];
         }
     }
@@ -43,18 +43,18 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return self;
 }
 
-- (void)genareObject {
+- (void)genareObjectAttPosition:(CGPoint)point {
     
     if ([self.children count] >= 5)
         return;
     
-    [self initNodeWithPosition:CGPointMake(145, 100 + 67*4)];
+    [self initNodeWithPosition:point];
 }
 
 - (SKTexture *)genareTextureRandom {
     
-    int number = arc4random() % 4;
-    
+//    int number = arc4random() % 4;
+    int number = 0;
     SKTexture *texture = [self genareTextureWithNumber:number];
     return texture;
 }
@@ -81,15 +81,15 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 #pragma mark - State
 
 - (void)stepState {
-    switch (self.currentState) {
+    switch (currentState) {
         case State_Idle:
-            self.currentState = State_Start;
+            currentState = State_Start;
             break;
         case State_Start:
-            self.currentState = State_Stop;
+            currentState = State_Stop;
             break;
         case State_Stop:
-            self.currentState = State_Idle;
+            currentState = State_Idle;
             break;
             
         default:
@@ -100,7 +100,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 #pragma mark - Update 
 
 - (void)update:(NSTimeInterval)deltaTime {
-    if (self.currentState != State_Idle) {
+    if (currentState != State_Idle) {
         [self move:deltaTime];
     }
 }
@@ -110,25 +110,28 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self enumerateChildNodesWithName:@"node" usingBlock: ^(SKNode *node, BOOL *stop)
      {
 
-         CGPoint amtToMove = CGPointMultiplyScalar(_bgVelocity, dt);
+        CGPoint amtToMove = CGPointMultiplyScalar(velocityY, dt);
          
-        switch (self.currentState) {
+        switch (currentState) {
             case State_Idle:
                 break;
             case State_Start:
                 
-                _bgVelocity.y = _bgVelocity.y - 100*dt;
+                velocityY.y = velocityY.y - 100*dt;
                 
-                if (_bgVelocity.y < - MAX_VELOCITY) {
-                    _bgVelocity.y = - MAX_VELOCITY;
+                if (velocityY.y < - MAX_VELOCITY) {
+                    velocityY.y = - MAX_VELOCITY;
                 }
                 break;
             case State_Stop:
                 
-                _bgVelocity.y = _bgVelocity.y + 100*dt;
-                
-                if (_bgVelocity.y > 0) {
-                    _bgVelocity.y = 0;
+                velocityY.y = velocityY.y + 100*dt;
+
+                if (velocityY.y > 0) {
+                    velocityY.y = 0;
+                    currentState = State_Idle;
+                } else {
+                    NSLog(@"%f", velocityY.y);
                 }
                 
                 break;
@@ -138,18 +141,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
          
          node.position = CGPointAdd(node.position, amtToMove);
          
-         if (node.position.y < 53)
+         if (node.position.y < 57)
          {
+            
+            [node removeFromParent];
              
-             [node removeFromParent];
-             node = nil;
-          
-             if (`) {
-                 
-             }
-            [self genareObject];
+             SKSpriteNode *node = self.children[3];
+             
+            [self genareObjectAttPosition:CGPointMake(node.position.x, node.position.y+ node.size.height)];
          }
      }];
+    
 }
 
 
