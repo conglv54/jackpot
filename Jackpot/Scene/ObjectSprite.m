@@ -129,7 +129,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 break;
             case State_Stop:
                 
-                distance = distance +
                 velocityY.y = velocityY.y + 100*dt;
                 
                 if (velocityY.y > -5) {
@@ -152,11 +151,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
          
          if (node.position.y < 0)
          {
-             
-            [node removeFromParent];
-             
-             SKSpriteNode *node = self.children[self.children.count - 1];
-            [self genareObjectAttPosition:CGPointMake(node.position.x, node.position.y+ node.size.height)];
+             node.position = CGPointMake(105, 70 + (65*4));
          }
      }];
     
