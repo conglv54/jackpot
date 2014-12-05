@@ -111,11 +111,13 @@
     UIImageView *imvWin = [[UIImageView alloc] initWithImage:imgBgWin];
     [imvWin setNewFrame:CGRectMake(396, 263, imgBgWin.size.width, imgBgWin.size.height)];
     [self.view addSubview:imvWin];
+    
+    [self initScene];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    [self initScene];
+
 }
 
 #pragma mark - Init

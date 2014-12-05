@@ -20,12 +20,12 @@
     UIScreen *screen = [UIScreen mainScreen];
     CGRect fullScreenRect = screen.bounds;
     
-    if(orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft){
-        CGRect temp = CGRectZero;
-        temp.size.width = fullScreenRect.size.height;
-        temp.size.height = fullScreenRect.size.width;
-        fullScreenRect = temp;
-    }
+//    if(orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft){
+//        CGRect temp = CGRectZero;
+//        temp.size.width = fullScreenRect.size.height;
+//        temp.size.height = fullScreenRect.size.width;
+//        fullScreenRect = temp;
+//    }
     
     return fullScreenRect;
 }

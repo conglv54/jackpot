@@ -9,7 +9,7 @@
 #import "ObjectSprite.h"
 #import "SKNode+Frame.h"
 
-static const float OBJECT_VELOCITY = 100;
+static const float OBJECT_VELOCITY = 500;
 static const float MAX_VELOCITY = 1000;
 
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
@@ -36,7 +36,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         velocityY = CGPointMake(0, -OBJECT_VELOCITY);
         
         for (int i = 0; i < 5; i++) {
-            CGPoint position = CGPointMake(105, 70 + (65*i));
+            CGPoint position = CGPointMake(0, (65*i));
             [self initNodeWithPosition:position];
         }
     }
@@ -55,7 +55,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (SKTexture *)genareTextureRandom {
     
     int number = arc4random() % 4;
-    number = 0;
+//    number = 0;
     
     SKTexture *texture = [self genareTextureWithNumber:number];
     return texture;
@@ -87,10 +87,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)stepState {
     switch (currentState) {
         case State_Idle:
-            currentState = State_Start;
+            [self performSelector:@selector(switchStartState) withObject:nil afterDelay:self.index *0.25];
             break;
         case State_Start:
-            currentState = State_Stop;
+            [self performSelector:@selector(switchStopState) withObject:nil afterDelay:self.index *0.25];
             break;
         case State_Stop:
             currentState = State_Idle;
@@ -99,6 +99,14 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         default:
             break;
     }
+}
+
+- (void)switchStopState {
+    currentState = State_Stop;
+}
+
+- (void)switchStartState {
+    currentState = State_Start;
 }
 
 #pragma mark - Update 
@@ -111,49 +119,55 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)move:(NSTimeInterval)dt {
     
-    [self enumerateChildNodesWithName:@"node" usingBlock: ^(SKNode *node, BOOL *stop)
-     {
-
-        CGPoint amtToMove = CGPointMultiplyScalar(velocityY, dt);
-         
-        switch (currentState) {
-            case State_Idle:
-                break;
-            case State_Start:
-                
-                velocityY.y = velocityY.y - 100*dt;
-                
-                if (velocityY.y < - MAX_VELOCITY) {
-                    velocityY.y = - MAX_VELOCITY;
-                }
-                break;
-            case State_Stop:
-                
-                velocityY.y = velocityY.y + 100*dt;
-                
-                if (velocityY.y > -5) {
-                    
-                }
-
-                if (velocityY.y > 0) {
-                    velocityY.y = 0;
-                    currentState = State_Idle;
-                } else {
-                    NSLog(@"%f", velocityY.y);
-                }
-                
-                break;
-            default:
+    CGPoint amtToMove = CGPointMultiplyScalar(velocityY, dt);
+    
+    switch (currentState) {
+        case State_Idle:
             break;
-        }
-         
-         node.position = CGPointAdd(node.position, amtToMove);
-         
-         if (node.position.y < 0)
-         {
-             node.position = CGPointMake(105, 70 + (65*4));
-         }
-     }];
+        case State_Start:
+        
+            velocityY.y = velocityY.y - OBJECT_VELOCITY*dt;
+            
+            if (velocityY.y < - MAX_VELOCITY) {
+                velocityY.y = - MAX_VELOCITY;
+            }
+            break;
+        case State_Stop:
+            
+            velocityY.y = velocityY.y + OBJECT_VELOCITY*dt;
+            
+            if (velocityY.y > -5) {
+                
+            }
+            
+            if (velocityY.y > 0) {
+                velocityY.y = 0;
+                currentState = State_Idle;
+                stopTime = 0;
+                startTime = 0;
+            } else {
+                NSLog(@"%f", velocityY.y);
+            }
+            
+            break;
+        default:
+            break;
+    }
+    
+    for (int i = 0; i < self.children.count; i ++) {
+        SKSpriteNode *node = self.children [i];
+        node.position = CGPointAdd(node.position, amtToMove);
+    }
+    
+    SKSpriteNode *node = self.children[0];
+    if (node.position.y < - node.size.height)
+    {
+        [node removeFromParent];
+        SKSpriteNode *maxNode = self.children[self.children.count -1];
+        [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
+    }
+    
+    
     
 }
 
