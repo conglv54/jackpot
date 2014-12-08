@@ -19,12 +19,21 @@ typedef enum : NSUInteger {
 @private
     
     MachineState currentState;
+    
     CGPoint velocityY;
+    CGPoint resultVelocityY;
+    CGFloat stopV;
+    
     int current;
     
     CGFloat distance;
     CGFloat startTime;
     CGFloat stopTime;
+    
+    CGPoint spritePosition;
+    int spriteIndex;
+    
+    BOOL isGenResult;
 }
 
 @property (nonatomic)int index;
