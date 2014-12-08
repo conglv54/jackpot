@@ -44,6 +44,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return self;
 }
 
+- (void)genaraResult:(int) result attPosition:(CGPoint) position{
+    
+}
+
 - (void)genareObjectAttPosition:(CGPoint)point {
     
     if ([self.children count] >= 5)
@@ -55,7 +59,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (SKTexture *)genareTextureRandom {
     
     int number = arc4random() % 4;
-//    number = 0;
+    number = 0;
     
     SKTexture *texture = [self genareTextureWithNumber:number];
     return texture;
@@ -75,6 +79,18 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
     note.position = [self newPoint:position];
+    note.anchorPoint = CGPointMake(0, 0);
+    note.name = @"node";
+    note.size = [self newSize:CGSizeMake(72, 65)];
+    
+    [self addChild:note];
+}
+
+- (void)createNode {
+    SKTexture *texture = [self genareTextureWithNumber:spriteIndex];
+    
+    SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
+    note.position = [self newPoint:spritePosition];
     note.anchorPoint = CGPointMake(0, 0);
     note.name = @"node";
     note.size = [self newSize:CGSizeMake(72, 65)];
@@ -106,6 +122,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)switchStartState {
+    
     currentState = State_Start;
 }
 
@@ -118,8 +135,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)move:(NSTimeInterval)dt {
-    
-    CGPoint amtToMove = CGPointMultiplyScalar(velocityY, dt);
     
     switch (currentState) {
         case State_Idle:
@@ -134,10 +149,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             break;
         case State_Stop:
             
-            velocityY.y = velocityY.y + OBJECT_VELOCITY*dt;
-            
-            if (velocityY.y > -5) {
-                
+            if (!isGenResult) {
+                velocityY.y = velocityY.y + OBJECT_VELOCITY*dt;
+            } else {
+                velocityY.y = velocityY.y + (stopV*dt);
             }
             
             if (velocityY.y > 0) {
@@ -145,14 +160,18 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 currentState = State_Idle;
                 stopTime = 0;
                 startTime = 0;
+                current = 0;
+                isGenResult = FALSE;
             } else {
-                NSLog(@"%f", velocityY.y);
+//                NSLog(@"%f", velocityY.y);
             }
             
             break;
         default:
             break;
     }
+    
+    CGPoint amtToMove = CGPointMultiplyScalar(velocityY, dt);
     
     for (int i = 0; i < self.children.count; i ++) {
         SKSpriteNode *node = self.children [i];
@@ -163,11 +182,29 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if (node.position.y < - node.size.height)
     {
         [node removeFromParent];
+        
         SKSpriteNode *maxNode = self.children[self.children.count -1];
-        [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
+        
+        if (currentState == State_Stop) {
+            current ++;
+            if (current!= 13) {
+                [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
+            } else {
+                spritePosition = CGPointMake(0, maxNode.position.y + maxNode.size.height);
+                spriteIndex = 1;
+                [self createNode];
+                isGenResult = TRUE;
+                
+                resultVelocityY = velocityY;
+                
+                stopV = (65 - spritePosition.y)/2  - amtToMove.y/dt;
+                NSLog(@"position: %f", spritePosition.y);
+                NSLog(@"Accessor: %f", stopV);
+            }
+        } else {
+            [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
+        }
     }
-    
-    
     
 }
 
