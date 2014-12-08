@@ -44,8 +44,27 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return self;
 }
 
-- (void)genaraResult:(int) result attPosition:(CGPoint) position{
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    for (UITouch *touch in touches)
+    {
+        CGPoint location  = [touch locationInNode:self];
+        SKNode *node = [self nodeAtPoint:location];
+        
+        
+        if ([node.name isEqualToString:@"node"] )
+        {
+            CGPoint previousLocation = [touch previousLocationInNode:self];
+            float diff = location.y - previousLocation.y;
+            CGPoint newPosition = CGPointMake(node.position.x, node.position.y + diff);
+            
+            
+            if (newPosition.y > 230) {
+                newPosition.y = 230;
+            }
+            node.position = newPosition;
+        }
+    }
 }
 
 - (void)genareObjectAttPosition:(CGPoint)point {
@@ -59,7 +78,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (SKTexture *)genareTextureRandom {
     
     int number = arc4random() % 4;
-    number = 0;
+//    number = 0;
     
     SKTexture *texture = [self genareTextureWithNumber:number];
     return texture;
@@ -92,7 +111,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
     note.position = [self newPoint:spritePosition];
     note.anchorPoint = CGPointMake(0, 0);
-    note.name = @"node";
+    note.name = @"result";
     note.size = [self newSize:CGSizeMake(72, 65)];
     
     [self addChild:note];
@@ -103,10 +122,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)stepState {
     switch (currentState) {
         case State_Idle:
-            [self performSelector:@selector(switchStartState) withObject:nil afterDelay:self.index *0.25];
+            [self switchStartState];
+//            [self performSelector:@selector(switchStartState) withObject:nil afterDelay:self.index *0.25];
             break;
         case State_Start:
-            [self performSelector:@selector(switchStopState) withObject:nil afterDelay:self.index *0.25];
+//            [self switchStopState];
+            [self performSelector:@selector(switchStopState) withObject:nil afterDelay:self.index *0.125];
             break;
         case State_Stop:
             currentState = State_Idle;
@@ -146,14 +167,40 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             if (velocityY.y < - MAX_VELOCITY) {
                 velocityY.y = - MAX_VELOCITY;
             }
+            
+            distance += dt;
+            
             break;
         case State_Stop:
             
-            if (!isGenResult) {
+//            if (!isGenResult) {
                 velocityY.y = velocityY.y + OBJECT_VELOCITY*dt;
-            } else {
-                velocityY.y = velocityY.y + (stopV*dt);
+//            } else {
+//                velocityY.y = velocityY.y + (stopV*dt);
+//            }
+            
+            if (isGenResult) {
+                for (int i = 0; i < self.children.count; i ++) {
+                    SKSpriteNode *node = self.children [i];
+                    if ([node.name isEqualToString:@"result"]) {
+                        if (node.position.y <= 70) {
+                            
+                            [node setPosition:CGPointMake(0, 70)];
+                            
+                            velocityY.y = 0;
+                            currentState = State_Idle;
+                            stopTime = 0;
+                            startTime = 0;
+                            current = 0;
+                            isGenResult = FALSE;
+                            
+                            return;
+                        }
+                        break;
+                    }
+                }
             }
+            
             
             if (velocityY.y > 0) {
                 velocityY.y = 0;
@@ -162,9 +209,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 startTime = 0;
                 current = 0;
                 isGenResult = FALSE;
-            } else {
-//                NSLog(@"%f", velocityY.y);
             }
+//            } else {
+//                NSLog(@"%f", velocityY.y);
+//            }
             
             break;
         default:
@@ -186,25 +234,27 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         SKSpriteNode *maxNode = self.children[self.children.count -1];
         
         if (currentState == State_Stop) {
-            current ++;
-            if (current!= 13) {
+            NSLog(@"Slot %d: %f", self.index,  velocityY.y);
+            
+            if (velocityY.y > - 510) {
+                if (!isGenResult) {
+                    spritePosition = CGPointMake(0, maxNode.position.y + maxNode.size.height);
+                    spriteIndex = arc4random() %4;
+                    [self createNode];
+                    isGenResult = TRUE;
+                } else {
+                    [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
+                }
+            }else {
                 [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
-            } else {
-                spritePosition = CGPointMake(0, maxNode.position.y + maxNode.size.height);
-                spriteIndex = 1;
-                [self createNode];
-                isGenResult = TRUE;
-                
-                resultVelocityY = velocityY;
-                
-                stopV = (65 - spritePosition.y)/2  - amtToMove.y/dt;
-                NSLog(@"position: %f", spritePosition.y);
-                NSLog(@"Accessor: %f", stopV);
             }
+
         } else {
             [self genareObjectAttPosition:CGPointMake(0, maxNode.position.y + maxNode.size.height)];
         }
     }
+    
+    
     
 }
 

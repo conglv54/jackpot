@@ -72,7 +72,7 @@
 #pragma mark - Update
 
 - (void)update:(NSTimeInterval)currentTime {
-    if (_lastUpdateTime)
+    if(_lastUpdateTime)
     {
         _deltaTime = currentTime - _lastUpdateTime;
     }
@@ -85,6 +85,31 @@
 //    [_listNode update:_deltaTime];
     
     [machine update:_deltaTime];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    for (UITouch *touch in touches)
+    {
+        CGPoint location  = [touch locationInNode:self];
+        SKNode *node = [self nodeAtPoint:location];
+        
+        
+        if ([node.name isEqualToString:@"node"] )
+        {
+            CGPoint previousLocation = [touch previousLocationInNode:self];
+            float diff = location.y - previousLocation.y;
+            CGPoint newPosition = CGPointMake(node.position.x, node.position.y + diff);
+            node.position = newPosition;
+            
+            for (SKSpriteNode *spriteNode in self.children) {
+                if ([spriteNode.name isEqualToString:@"node"]) {
+                    CGPoint newPosition = CGPointMake(node.position.x, node.position.y + diff);
+                    node.position = newPosition;
+                }
+            }
+        }
+    }
 }
 
 @end
